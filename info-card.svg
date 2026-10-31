@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="332" viewBox="0 0 500 332" role="img" aria-labelledby="title desc">
+  <title id="title">Hery Setiawan — whoami</title>
+  <desc id="desc">Terminal-style card: Hery Setiawan, solo founder of Tenang, a privacy-first mental wellness app built with TypeScript, React Native, Expo and Supabase. Journals encrypt on-device.</desc>
+  <style>
+    text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+    .l { animation: line .5s cubic-bezier(.2, .7, .3, 1) both; }
+    @keyframes line { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) { .l { animation: none; } }
+  </style>
+  <rect x="0.5" y="0.5" width="499" height="331" rx="12" fill="#0d1117" stroke="#30363d"/>
+  <circle cx="20" cy="20" r="5" fill="#ff5f56"/>
+  <circle cx="36" cy="20" r="5" fill="#ffbd2e"/>
+  <circle cx="52" cy="20" r="5" fill="#27c93f"/>
+  <text x="68" y="25" fill="#8b949e" font-size="12">hrystwn@github: ~ — zsh</text>
+  <line x1="1" y1="38" x2="499" y2="38" stroke="#30363d"/>
+  <text class="l" style="animation-delay:0ms" x="26" y="72" fill="#3fb950" font-size="14">$ whoami</text>
+  <text class="l" style="animation-delay:90ms" x="26" y="96" fill="#e6edf3" font-size="14">Hery Setiawan — solo founder of Tenang</text>
+  <text class="l" style="animation-delay:180ms" x="26" y="126" fill="#3fb950" font-size="14">$ cat now.txt</text>
+  <text class="l" style="animation-delay:270ms" x="26" y="150" fill="#c9d1d9" font-size="14">Building Tenang: private, daily mental wellness.</text>
+  <text class="l" style="animation-delay:360ms" x="26" y="174" fill="#c9d1d9" font-size="14">Core loop works without an account.</text>
+  <text class="l" style="animation-delay:450ms" x="26" y="204" fill="#3fb950" font-size="14">$ printenv STACK</text>
+  <text class="l" style="animation-delay:540ms" x="26" y="228" fill="#c9d1d9" font-size="14">TypeScript · React Native · Expo · Supabase</text>
+  <text class="l" style="animation-delay:630ms" x="26" y="258" fill="#3fb950" font-size="14">$ ls ~/principles</text>
+  <text class="l" style="animation-delay:720ms" x="26" y="282" fill="#c9d1d9" font-size="14">Journals encrypt on-device (AES-256-GCM).</text>
+  <text class="l" style="animation-delay:810ms" x="26" y="306" fill="#c9d1d9" font-size="14">Bilingual by default — Indonesian and English.</text>
+</svg>

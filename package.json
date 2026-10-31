@@ -1,0 +1,11 @@
+{
+  "name": "hrystwn",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/fetch-contributions.mjs && node scripts/render-heatmap.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
