@@ -1,0 +1,5 @@
+# Portrait-only tooling. The daily heatmap workflow needs none of this.
+pillow
+numpy
+opencv-python
+rembg[cpu]

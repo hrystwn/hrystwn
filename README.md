@@ -6,6 +6,11 @@
 <br>
 
 <h3><code>hrystwn@github ~ $ whoami</code></h3>
-<img src="./info-card.svg" width="500" />
+<table>
+  <tr>
+    <td valign="top"><img src="./ascii-portrait.svg" width="360" /></td>
+    <td valign="top"><img src="./info-card.svg" width="500" /></td>
+  </tr>
+</table>
 
 </div>
