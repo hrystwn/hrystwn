@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="860" height="216" viewBox="0 0 860 216" role="img" aria-labelledby="title desc">
   <title id="title">hrystwn contribution heatmap</title>
-  <desc id="desc">36 contributions in the last year, 1-day current streak, 3-day longest streak.</desc>
+  <desc id="desc">38 contributions in the last year, 1-day current streak, 3-day longest streak.</desc>
   <style>
     text { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
     .c { animation: reveal .45s cubic-bezier(.2, .7, .3, 1) both; }
@@ -404,5 +404,5 @@
     <rect class="c" x="826" y="139" width="11" height="11" rx="2.5" fill="#161b22" style="animation-delay:684ms"/>
     <rect class="c" x="826" y="154" width="11" height="11" rx="2.5" fill="#39d353" style="animation-delay:696ms"/>
   </g>
-  <text x="46" y="194" font-size="12"><tspan fill="#e6edf3" font-weight="600">36</tspan><tspan fill="#8b949e"> contributions in the last year · streak 1d · longest 3d · best 21 (Jul 2, 2026)</tspan></text>
+  <text x="46" y="194" font-size="12"><tspan fill="#e6edf3" font-weight="600">38</tspan><tspan fill="#8b949e"> contributions in the last year · streak 1d · longest 3d · best 21 (Jul 2, 2026)</tspan></text>
 </svg>
