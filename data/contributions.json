@@ -1,6 +1,6 @@
 {
   "username": "hrystwn",
-  "total": 39,
+  "total": 40,
   "stats": {
     "currentStreak": 1,
     "longestStreak": 3,
@@ -10,41 +10,6 @@
     }
   },
   "days": [
-    {
-      "date": "2025-10-26",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-27",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-28",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-29",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-30",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-10-31",
-      "level": 0,
-      "count": 0
-    },
-    {
-      "date": "2025-11-01",
-      "level": 0,
-      "count": 0
-    },
     {
       "date": "2025-11-02",
       "level": 0,
@@ -1863,7 +1828,12 @@
     {
       "date": "2026-10-31",
       "level": 4,
-      "count": 10
+      "count": 11
+    },
+    {
+      "date": "2026-11-01",
+      "level": 0,
+      "count": 0
     }
   ]
 }
