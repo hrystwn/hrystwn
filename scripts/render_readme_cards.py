@@ -364,6 +364,29 @@ def work_card(name: str, kind: str, blurb: str, meta: str, i: int) -> str:
 
 
 # ---------------------------------------------------------------- build
+# Written next to the cards every run so a preview can never point at the wrong
+# directory. Layout mirrors a GitHub README column: 860 max, everything fluid.
+PREVIEW = """<!doctype html>
+<html><head><meta charset="utf-8"><title>README preview</title><style>
+body{{margin:0;background:#fff;padding:16px}}
+.wrap{{max-width:860px;margin:0 auto}}
+img{{display:block;width:100%;margin-bottom:12px}}
+.row{{display:flex;gap:6px;align-items:flex-start;margin-bottom:12px}}
+.row img{{margin:0}}
+</style></head><body><div class="wrap">
+<img src="{dir}/hero.svg">
+<img src="{dir}/graph.svg">
+<img src="{dir}/activity.svg">
+<div class="row">
+<img src="{dir}/tile-tenang.svg"><img src="{dir}/tile-code.svg"><img src="{dir}/tile-writing.svg">
+</div>
+<div class="row">
+<img src="{dir}/work-tenang.svg"><img src="{dir}/work-ai-job-search.svg">
+</div>
+</div></body></html>
+"""
+
+
 def main() -> None:
     data = json.loads((ROOT / "data" / "contributions.json").read_text(encoding="utf-8"))
     days, total, stats = data["days"], data["total"], data["stats"]
@@ -387,8 +410,9 @@ def main() -> None:
     }
     for name, content in out.items():
         (CARDS / name).write_text(content, encoding="utf-8")
+    (ROOT / "preview.html").write_text(PREVIEW.format(dir=CARDS.name), encoding="utf-8")
     mode = "animated" if ANIM else "static"
-    print(f"wrote {len(out)} cards ({mode}) - {total} contributions, {len(days)} days")
+    print(f"wrote {len(out)} cards ({mode}) to {CARDS.name}/ + preview.html - {total} contributions, {len(days)} days")
 
 
 if __name__ == "__main__":
