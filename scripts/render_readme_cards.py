@@ -411,7 +411,8 @@ def main() -> None:
             "tenangmail.com · iOS + Android" if site.get("appStore")
             else "tenangmail.com · TestFlight beta", 0),
         "work-ai-job-search.svg": work_card(
-            "ai-job-search", "OPEN SOURCE", "A job search that runs on your machine.", "TypeScript · Claude Code", 1),
+            "ai-job-search", "OPEN SOURCE · FORK", "A job search that runs on your machine.",
+            "Python · forked from ai-job-search-dev", 1),
     }
     for name, content in out.items():
         (CARDS / name).write_text(content, encoding="utf-8")
