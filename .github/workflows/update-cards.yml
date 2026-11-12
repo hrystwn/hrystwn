@@ -19,6 +19,7 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/fetch-data.mjs
+      - run: python3 -m unittest discover -s scripts -p "test_*.py"
       - run: python3 scripts/render_readme_cards.py
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
