@@ -11,14 +11,14 @@ text{font-family:Poppins,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-se
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 .sway{transform-box:fill-box;transform-origin:center;animation:sway 3.4s ease-in-out infinite}
 @keyframes sway{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
-.an,.pop,.grow,.sway{animation:none}</style>
+@media (prefers-reduced-motion:reduce){.an,.pop,.grow,.sway{animation:none}}</style>
 <defs><linearGradient id="sw" x1="0" x2="1"><stop offset="0" stop-color="#E3F0D8" stop-opacity="0"/><stop offset=".5" stop-color="#E3F0D8"/><stop offset="1" stop-color="#E3F0D8" stop-opacity="0"/></linearGradient></defs>
-<rect x=".5" y=".5" width="279" height="195" rx="14" fill="#FFFFFF" stroke="#B1D49A"/>
-
-
+<g class="an"><rect x=".5" y=".5" width="279" height="195" rx="14" fill="#FFFFFF" stroke="#B1D49A"/>
+<rect x="0" y="0" width="70" height="196" fill="url(#sw)" opacity=".55"><animateTransform attributeName="transform" type="translate" from="-90 0" to="320 0" begin="2.6s" dur="5.5s" repeatCount="indefinite"/></rect>
+<circle cx="0" cy="196" r="10" fill="none" stroke="#2E501E" stroke-width="1.5" opacity="0"><animate attributeName="r" values="10;150" begin="1.00s" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".35;0" begin="1.00s" dur="4.5s" repeatCount="indefinite"/></circle>
 <text letter-spacing="2" x="24" y="46" fill="#745613" font-size="11" font-weight="700">01</text>
 <text x="24" y="96" fill="#14260D" font-size="23" font-weight="700">Tenang</text>
 <text x="24" y="126" fill="#386722" font-size="11.5" font-weight="400">A private mental wellness app.</text>
 <text x="24" y="146" fill="#386722" font-size="11.5" font-weight="400">Private beta · TestFlight</text>
-<g class="sway" style="animation:none"><path d="M228 168h20m0 0-6-6m6 6-6 6" fill="none" stroke="#2E501E" stroke-width="1.6" stroke-linecap="round"/></g>
+<g class="sway" style="animation-delay:900ms"><path d="M228 168h20m0 0-6-6m6 6-6 6" fill="none" stroke="#2E501E" stroke-width="1.6" stroke-linecap="round"/></g></g>
 </svg>
