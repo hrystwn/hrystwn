@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node scripts/fetch-contributions.mjs && python scripts/render_readme_cards.py"
+    "build": "node scripts/fetch-data.mjs && python scripts/render_readme_cards.py"
   },
   "engines": {
     "node": ">=20"

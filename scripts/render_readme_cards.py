@@ -98,7 +98,7 @@ def txt(x, y, s, size=13, fill=INK, weight=400, extra="", cls="") -> str:
 
 
 # ---------------------------------------------------------------- hero
-def hero(name: str, portrait: list[str]) -> str:
+def hero(name: str, portrait: list[str], site: dict) -> str:
     w, h = 860, 460
     art_x, art_y = 456, 90
     font, line_h, char_w = 8.3, 7.2, 3.96
@@ -155,7 +155,8 @@ def hero(name: str, portrait: list[str]) -> str:
         txt(56, 312, "Moods, journals and self-checks that stay", 15, INK, 400, "", "an"),
         txt(56, 336, "encrypted on the device.", 15, INK, 400, "", "an"),
         f'<circle class="an"{delay(560)} cx="61" cy="373" r="4" fill="{BRAND}"/>',
-        txt(76, 378, "Tenang is in private beta on TestFlight", 12.5, INK2, 400, "", "an"),
+        txt(76, 378, "Tenang is live on the App Store" if site.get("appStore")
+            else "Tenang is in private beta on TestFlight", 12.5, INK2, 400, "", "an"),
         txt(56, 412, "TypeScript · React Native · Expo · Supabase", 11.5, INK2, 400, ' letter-spacing=".3"'),
         '<g fill="' + INK + '" opacity=".92">' + "".join(rows) + "</g>",
         "".join(cursors),
@@ -301,15 +302,19 @@ def count_up(total: int, x: int, y: int, size: int) -> str:
 
 # ---------------------------------------------------------------- tiles
 TILES = [
-    ("01", "Tenang", "A private mental wellness app.", "Private beta · TestFlight"),
+    ("01", "Tenang", "A private mental wellness app.", None),
     ("02", "Code", "Open-source tools and experiments.", "github.com/hrystwn"),
-    ("03", "Writing", "Notes on privacy, shipping and product.", "18 posts"),
+    ("03", "Writing", "Notes on privacy, shipping and product.", None),
 ]
 
 
-def tile(index: int) -> str:
+def tile(index: int, site: dict) -> str:
     w, h = 280, 196
     num, title, line1, line2 = TILES[index]
+    if index == 0:
+        line2 = "App Store · iOS + Android" if site.get("appStore") else "Private beta · TestFlight"
+    elif index == 2:
+        line2 = f"{site['posts']} posts" if site.get("posts") else "tenangmail.com/blog"
     sweep = (
         f'<rect x="0" y="0" width="70" height="{h}" fill="url(#sw)" opacity=".55">'
         f'<animateTransform attributeName="transform" type="translate" from="-90 0" to="{w + 40} 0" '
@@ -364,15 +369,17 @@ def main() -> None:
     days, total, stats = data["days"], data["total"], data["stats"]
     portrait = (ROOT / "data" / "portrait.txt").read_text(encoding="utf-8").splitlines()
     assert len(portrait) == 48 and all(len(r) == 90 for r in portrait), "portrait.txt must be 90x48"
+    site = json.loads((ROOT / "data" / "site.json").read_text(encoding="utf-8")) \
+        if (ROOT / "data" / "site.json").exists() else {}
 
     CARDS.mkdir(exist_ok=True)
     out = {
-        "hero.svg": hero(data["username"], portrait),
+        "hero.svg": hero(data["username"], portrait, site),
         "graph.svg": graph(days, total),
         "activity.svg": activity(days, stats, total),
-        "tile-tenang.svg": tile(0),
-        "tile-code.svg": tile(1),
-        "tile-writing.svg": tile(2),
+        "tile-tenang.svg": tile(0, site),
+        "tile-code.svg": tile(1, site),
+        "tile-writing.svg": tile(2, site),
         "work-tenang.svg": work_card(
             "Tenang", "BUILDING", "Private, unhurried mental wellness.", "tenangmail.com · iOS + Android", 0),
         "work-ai-job-search.svg": work_card(

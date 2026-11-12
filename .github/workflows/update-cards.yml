@@ -18,9 +18,9 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version: 22
-      - run: node scripts/fetch-contributions.mjs
+      - run: node scripts/fetch-data.mjs
       - run: python3 scripts/render_readme_cards.py
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "Refresh contribution cards [skip ci]"
-          file_pattern: "data/contributions.json cards/*.svg"
+          file_pattern: "data/contributions.json data/site.json cards/*.svg"

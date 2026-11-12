@@ -1,12 +1,37 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 
 const USERNAME = 'hrystwn';
+const APP_ID = '6822785836';
+const BLOG = 'https://tenangmail.com/blog/';
 const ENDPOINT = `https://github.com/users/${USERNAME}/contributions`;
 
 const fail = (message) => {
   console.error(message);
   process.exit(1);
 };
+
+// The cards claim "live on the App Store" and "N posts". Check both instead of
+// trusting a string someone has to remember to edit after launch.
+async function siteFacts() {
+  const facts = {};
+  try {
+    const res = await fetch(`https://itunes.apple.com/lookup?id=${APP_ID}&country=us`);
+    const body = await res.json();
+    facts.appStore = body.resultCount > 0;
+  } catch (error) {
+    console.error(`app store lookup skipped: ${error.message}`);
+  }
+  try {
+    const res = await fetch(BLOG, { headers: { 'user-agent': `${USERNAME}-profile-cards` } });
+    const html = await res.text();
+    const slugs = new Set([...html.matchAll(/href="\/blog\/([a-z0-9-]+)\.html"/g)].map(([, s]) => s));
+    slugs.delete('index');
+    if (slugs.size) facts.posts = slugs.size;
+  } catch (error) {
+    console.error(`blog count skipped: ${error.message}`);
+  }
+  return facts;
+}
 
 const res = await fetch(ENDPOINT, {
   headers: { accept: 'text/html', 'user-agent': `${USERNAME}-profile-heatmap` },
@@ -76,6 +101,14 @@ const payload = {
 await mkdir(new URL('../data/', import.meta.url), { recursive: true });
 await writeFile(new URL('../data/contributions.json', import.meta.url), `${JSON.stringify(payload, null, 2)}\n`);
 
+const facts = await siteFacts();
+// A failed lookup must not overwrite what the last good run learned — otherwise
+// the hero would quietly regress to "private beta" after the app ships.
+const sitePath = new URL('../data/site.json', import.meta.url);
+const previous = await readFile(sitePath, 'utf8').then(JSON.parse).catch(() => ({}));
+await writeFile(sitePath, `${JSON.stringify({ ...previous, ...facts }, null, 2)}\n`);
+
+console.log(`site: appStore=${facts.appStore} posts=${facts.posts ?? '?'}`);
 console.log(
   `wrote ${days.length} days (${days[0].date} → ${days.at(-1).date}) · ${total} contributions · current ${currentStreak} · longest ${longestStreak} · best ${bestDay.count} on ${bestDay.date}`,
 );
