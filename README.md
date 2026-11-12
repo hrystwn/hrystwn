@@ -1,15 +1,16 @@
 <div align="center">
 
-<h3><code>hrystwn@github ~ $ ./contributions.sh</code></h3>
-<img src="./contrib-heatmap.svg" width="860" />
+<img src="./cards/hero.svg" width="100%" alt="Hery Setiawan — solo founder of Tenang, a private mental wellness app" />
 
-<br>
+<img src="./cards/graph.svg" width="100%" alt="Contribution graph for the last twelve months" />
 
-<h3><code>hrystwn@github ~ $ whoami</code></h3>
-<img src="./ascii-portrait.svg" width="360" />
+<img src="./cards/activity.svg" width="100%" alt="Contributions per month, with current streak, longest streak and busiest day" />
 
-<br>
+<a href="https://tenangmail.com"><img src="./cards/tile-tenang.svg" width="32.5%" alt="Tenang — a private mental wellness app, live on the App Store" /></a>
+<a href="https://github.com/hrystwn?tab=repositories"><img src="./cards/tile-code.svg" width="32.5%" alt="Code — open-source tools and experiments" /></a>
+<a href="https://tenangmail.com/blog/"><img src="./cards/tile-writing.svg" width="32.5%" alt="Writing — notes on privacy, shipping and product" /></a>
 
-<img src="./info-card.svg" width="500" />
+<img src="./cards/work-tenang.svg" width="48.5%" alt="Tenang: private, unhurried mental wellness — tenangmail.com, iOS" />
+<img src="./cards/work-ai-job-search.svg" width="48.5%" alt="ai-job-search: a job search that runs on your machine — TypeScript, Claude Code" />
 
 </div>

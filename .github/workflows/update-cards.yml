@@ -1,4 +1,4 @@
-name: Update contribution heatmap
+name: Update contribution cards
 
 on:
   schedule:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  heatmap:
+  cards:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -19,8 +19,8 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/fetch-contributions.mjs
-      - run: node scripts/render-heatmap.mjs
+      - run: python3 scripts/render_readme_cards.py
       - uses: stefanzweifel/git-auto-commit-action@v7
         with:
-          commit_message: "Refresh contribution heatmap [skip ci]"
-          file_pattern: "data/contributions.json contrib-heatmap.svg"
+          commit_message: "Refresh contribution cards [skip ci]"
+          file_pattern: "data/contributions.json cards/*.svg"
