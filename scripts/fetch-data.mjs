@@ -70,6 +70,12 @@ const days = cells
 
 const total = days.reduce((sum, day) => sum + day.count, 0);
 
+// GitHub's calendar ends today. A stale CDN copy or a half-rendered page would
+// otherwise be committed as if it were current, quietly shrinking the graph.
+const newest = days.at(-1).date;
+const ageDays = (Date.now() - Date.parse(`${newest}T00:00:00Z`)) / 86_400_000;
+if (ageDays > 2) fail(`calendar looks stale: newest day is ${newest} (${ageDays.toFixed(1)} days old)`);
+
 let longestStreak = 0;
 let run = 0;
 for (const day of days) {
