@@ -116,8 +116,8 @@ def hero(name: str, portrait: list[str], site: dict) -> str:
                 f'dur=".24s" fill="freeze"/></rect></clipPath>'
             )
             rows.append(
-                f'<g clip-path="url(#c{i})"><text class="a" x="{art_x}" y="{base:.1f}"'
-                f'>{esc(row)}</text></g>'
+                f'<g clip-path="url(#c{i})"><text class="a" x="{art_x}" y="{base:.1f}" xml:space="preserve" '
+                f'textLength="{art_w:.1f}" lengthAdjust="spacingAndGlyphs">{esc(row)}</text></g>'
             )
             cursors.append(
                 f'<rect x="{art_x}" y="{top:.1f}" width="4" height="{line_h - 1:.1f}" fill="{INK}" opacity="0">'
@@ -128,7 +128,8 @@ def hero(name: str, portrait: list[str], site: dict) -> str:
             )
         else:
             rows.append(
-                f'<text class="a" x="{art_x}" y="{base:.1f}">{esc(row)}</text>'
+                f'<text class="a" x="{art_x}" y="{base:.1f}" xml:space="preserve" '
+                f'textLength="{art_w:.1f}" lengthAdjust="spacingAndGlyphs">{esc(row)}</text>'
             )
 
     shine = (
@@ -169,7 +170,7 @@ def hero(name: str, portrait: list[str], site: dict) -> str:
         "An ASCII portrait prints in row by row on the right.",
         "\n".join(body),
         defs="".join(clips) + shine,
-        css=f".a{{font-family:{MONO};font-size:{font}px}}",
+        css=f".a{{font-family:{MONO};font-size:{font}px;white-space:pre}}",
     )
 
 

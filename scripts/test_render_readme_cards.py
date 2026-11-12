@@ -6,6 +6,7 @@ import importlib.util
 import json
 import os
 import pathlib
+import re
 import subprocess
 import sys
 import unittest
@@ -56,6 +57,14 @@ class Rendered(unittest.TestCase):
     def test_activity_states_the_real_total(self):
         body = (self.dir / "activity.svg").read_text(encoding="utf-8")
         self.assertIn(f'>{self.data["total"]}<', body)
+
+    def test_portrait_rows_keep_all_columns_at_one_width(self):
+        # Viewers pick their own mono font, so the art only holds its shape if every
+        # row keeps its spaces and is pinned to one textLength.
+        body = (self.dir / "hero.svg").read_text(encoding="utf-8")
+        rows = (ROOT / "data" / "portrait.txt").read_text(encoding="utf-8").splitlines()
+        self.assertEqual(body.count('xml:space="preserve"'), len(rows))
+        self.assertEqual(len(set(re.findall(r'textLength="([\d.]+)"', body))), 1)
 
 
 class Copy(unittest.TestCase):
