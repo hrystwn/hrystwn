@@ -10,6 +10,12 @@ on:
 permissions:
   contents: write
 
+# The cron and a push can land together; both would rewrite the same files and
+# one would fail its push. Serialize instead of cancelling a half-finished commit.
+concurrency:
+  group: cards
+  cancel-in-progress: false
+
 jobs:
   cards:
     runs-on: ubuntu-latest

@@ -102,6 +102,8 @@ def hero(name: str, portrait: list[str], site: dict) -> str:
     w, h = 860, 460
     art_x, art_y = 456, 90
     font, line_h, char_w = 8.3, 7.2, 3.96
+    # 3.96 is the designed advance, not the viewer's: textLength below pins every
+    # row to it, so the art keeps its width whichever mono font is installed.
     art_w, art_h = len(portrait[0]) * char_w, len(portrait) * line_h
 
     clips, rows, cursors = [], [], []
