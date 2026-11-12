@@ -18,8 +18,9 @@ import pathlib
 from datetime import date, timedelta
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-CARDS = ROOT / "cards"
 ANIM = not os.environ.get("STATIC")
+# STATIC writes somewhere else on purpose: a preview can never be committed over the real cards.
+CARDS = ROOT / "cards" if ANIM else ROOT / "cards-preview"
 
 PAPER = "#F2FAEB"
 CARD = "#FFFFFF"
