@@ -210,7 +210,7 @@ def graph(days: list[dict], total: int) -> str:
     )
     body = [
         surface(w, h),
-        txt(40, 38, "CONTRIBUTION GRAPH · LAST 12 MONTHS", 11, INK2, 700, ' letter-spacing="2"', "an"),
+        txt(40, 38, "PUBLIC CONTRIBUTION GRAPH · LAST 12 MONTHS", 11, INK2, 700, ' letter-spacing="2"', "an"),
         txt(820, 38, f"{total} this year", 11.5, INK2, 400, ' text-anchor="end"', "an"),
         f'<g class="an"{delay(120)}>{"".join(months)}{"".join(weekdays)}</g>',
         *cells,
@@ -261,13 +261,13 @@ def activity(days: list[dict], stats: dict, total: int) -> str:
     counter = count_up(total, 520, 118, 46)
     body = [
         surface(w, h),
-        txt(40, 38, "CONTRIBUTIONS PER MONTH", 11, INK2, 700, ' letter-spacing="2"', "an"),
+        txt(40, 38, "PUBLIC CONTRIBUTIONS PER MONTH", 11, INK2, 700, ' letter-spacing="2"', "an"),
         f'<line x1="40" y1="{base_y}" x2="440" y2="{base_y}" stroke="{LINE}"/>',
         *bars,
         label,
         f'<line x1="480" y1="52" x2="480" y2="212" stroke="{LINE}"/>',
         counter,
-        txt(520, 146, "contributions in the last year", 11.5, INK2, 400, "", "an"),
+        txt(520, 146, "public contributions in the last year", 11.5, INK2, 400, "", "an"),
         txt(520, 184, f"{streak}-day current streak", 13, INK, 400, "", "an"),
         txt(520, 208, f"longest {longest} · busiest {busiest['count']} on {busy_date}", 13, INK, 400, "", "an"),
     ]
