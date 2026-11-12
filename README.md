@@ -10,7 +10,7 @@
 <a href="https://github.com/hrystwn?tab=repositories"><img src="./cards/tile-code.svg" width="32.5%" alt="Code — open-source tools and experiments" /></a>
 <a href="https://tenangmail.com/blog/"><img src="./cards/tile-writing.svg" width="32.5%" alt="Writing — notes on privacy, shipping and product" /></a>
 
-<img src="./cards/work-tenang.svg" width="49.3%" alt="Tenang: private, unhurried mental wellness — tenangmail.com" />
-<img src="./cards/work-ai-job-search.svg" width="49.3%" alt="ai-job-search: a job search that runs on your machine — Python, a fork of ai-job-search-dev" />
+<a href="https://tenangmail.com"><img src="./cards/work-tenang.svg" width="49.3%" alt="Tenang: private, unhurried mental wellness — tenangmail.com" /></a>
+<a href="https://github.com/hrystwn/ai-job-search"><img src="./cards/work-ai-job-search.svg" width="49.3%" alt="ai-job-search: a job search that runs on your machine — Python, a fork of ai-job-search-dev" /></a>
 
 </div>
