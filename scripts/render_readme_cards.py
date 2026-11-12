@@ -213,7 +213,7 @@ def graph(days: list[dict], total: int) -> str:
     body = [
         surface(w, h),
         txt(40, 38, "PUBLIC CONTRIBUTION GRAPH · LAST 12 MONTHS", 11, INK2, 700, ' letter-spacing="2"', "an"),
-        txt(820, 38, f"{total} this year", 11.5, INK2, 400, ' text-anchor="end"', "an"),
+        txt(820, 38, f"{total} in 12 months", 11.5, INK2, 400, ' text-anchor="end"', "an"),
         f'<g class="an"{delay(120)}>{"".join(months)}{"".join(weekdays)}</g>',
         *cells,
         legend,
@@ -244,7 +244,7 @@ def activity(days: list[dict], stats: dict, total: int) -> str:
         value = months[key]
         height = round(value / peak * max_h, 1) if value else 2
         x = 44 + i * 34
-        fill = BRAND if key == best else "#8CC269"
+        fill = TINT if not value else (BRAND if key == best else "#8CC269")
         bars.append(
             f'<rect class="grow"{delay(150 + i * 45)} x="{x}" y="{base_y - height}" width="{bar_w}" '
             f'height="{height}" rx="3" fill="{fill}"/>'
@@ -405,7 +405,9 @@ def main() -> None:
         "tile-code.svg": tile(1, site),
         "tile-writing.svg": tile(2, site),
         "work-tenang.svg": work_card(
-            "Tenang", "BUILDING", "Private, unhurried mental wellness.", "tenangmail.com · iOS + Android", 0),
+            "Tenang", "BUILDING", "Private, unhurried mental wellness.",
+            "tenangmail.com · iOS + Android" if site.get("appStore")
+            else "tenangmail.com · TestFlight beta", 0),
         "work-ai-job-search.svg": work_card(
             "ai-job-search", "OPEN SOURCE", "A job search that runs on your machine.", "TypeScript · Claude Code", 1),
     }

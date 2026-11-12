@@ -58,6 +58,11 @@ class Rendered(unittest.TestCase):
         body = (self.dir / "activity.svg").read_text(encoding="utf-8")
         self.assertIn(f'>{self.data["total"]}<', body)
 
+    def test_graph_states_the_window(self):
+        body = (self.dir / "graph.svg").read_text(encoding="utf-8")
+        self.assertIn(" in 12 months<", body)
+        self.assertNotIn(" this year<", body)
+
     def test_portrait_rows_keep_all_columns_at_one_width(self):
         # Viewers pick their own mono font, so the art only holds its shape if every
         # row keeps its spaces and is pinned to one textLength.
