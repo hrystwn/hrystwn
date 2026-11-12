@@ -72,6 +72,21 @@ class Rendered(unittest.TestCase):
         self.assertEqual(len(set(re.findall(r'textLength="([\d.]+)"', body))), 1)
 
 
+class Readme(unittest.TestCase):
+    """README.md is hand-edited, so it cannot read data/site.json. Anything that
+    drifts with the app's release state belongs on the cards, not in the alt text."""
+
+    def test_alt_text_carries_no_release_claim(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        for claim in ("Android", "App Store", "TestFlight"):
+            self.assertNotIn(claim, readme)
+
+    def test_every_image_has_alt_text(self):
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        for tag in re.findall(r"<img\b[^>]*>", readme):
+            self.assertRegex(tag, r'alt="[^"]+"')
+
+
 class Copy(unittest.TestCase):
     """The sentences that must follow data/site.json instead of memory."""
 
