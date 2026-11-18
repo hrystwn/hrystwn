@@ -1,9 +1,9 @@
 {
   "username": "hrystwn",
-  "total": 81,
+  "total": 82,
   "stats": {
-    "currentStreak": 11,
-    "longestStreak": 11,
+    "currentStreak": 12,
+    "longestStreak": 12,
     "bestDay": {
       "date": "2026-11-12",
       "count": 28
@@ -1842,6 +1842,11 @@
     },
     {
       "date": "2026-11-17",
+      "level": 2,
+      "count": 1
+    },
+    {
+      "date": "2026-11-18",
       "level": 0,
       "count": 0
     }
